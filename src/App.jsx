@@ -106,13 +106,13 @@ function App() {
 
     //validate firstname
     if ((formData.touched.firstName && formData.firstName.trim("").length < 1) ||
-      (formData.touched.firstName && formData.firstName.trim("").length > 30)) {
+      (formData.touched.firstName && formData.firstName.trim("").length > 50)) {
       errors.firstName = 'First name not valid'
     }
 
     //validate firstname
     if ((formData.touched.lastName && formData.lastName.trim("").length < 1) ||
-      (formData.touched.lastName && formData.lastName.trim("").length > 30)) {
+      (formData.touched.lastName && formData.lastName.trim("").length > 50)) {
       errors.lastName = 'Last name not valid'
     }
 
@@ -128,13 +128,13 @@ function App() {
 
     //validate password
     if ((formData.touched.password && formData.password.trim("").length < 4) ||
-      (formData.touched.password && formData.password.trim("").length > 6)) {
+      (formData.touched.password && formData.password.trim("").length > 50)) {
       errors.password = 'incorrect password'
     }
 
     //validate confirm password
     if ((formData.touched.confirmPassword && formData.confirmPassword.trim("").length < 4) ||
-      (formData.touched.confirmPassword && formData.confirmPassword.trim("").length > 6)) {
+      (formData.touched.confirmPassword && formData.confirmPassword.trim("").length > 50)) {
       errors.confirmPassword = 'password do not match'
     }
 
@@ -182,7 +182,7 @@ function App() {
               <Inputs divClassName="customer-password" labelfor="password" labeltext="Password"
                 type="password" name="password" id="password" placeholder=""
                 autoComplete="off" onChange={onChange} onBlur={onBlur} value={password}
-                min={4} max={6} ariaDescribedBy="error-password" errors={errors.password}
+                min={4} max={50} ariaDescribedBy="error-password" errors={errors.password}
                 errorId="error-password" />
               {/* password details */}
 
@@ -190,7 +190,7 @@ function App() {
               <Inputs divClassName="customer-confirm-password" labelfor="cpassword" labeltext="Confirm Password"
                 type="password" name="confirmPassword" id="cpassword" placeholder=""
                 autoComplete="off" onChange={onChange} onBlur={onBlur} value={confirmPassword}
-                min={4} max={6} ariaDescribedBy="error-cpassword" errors={errors.confirmPassword}
+                min={4} max={50} ariaDescribedBy="error-cpassword" errors={errors.confirmPassword}
                 errorId="error-cpassword" />
               {/*confirm password details */}
 
