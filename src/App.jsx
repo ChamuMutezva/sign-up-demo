@@ -107,19 +107,19 @@ function App() {
     //validate firstname
     if ((formData.touched.firstName && formData.firstName.trim("").length < 1) ||
       (formData.touched.firstName && formData.firstName.trim("").length > 30)) {
-      errors.firstName = 'First name must be between 1 and 30 characters in length'
+      errors.firstName = 'First name not valid'
     }
 
     //validate firstname
     if ((formData.touched.lastName && formData.lastName.trim("").length < 1) ||
       (formData.touched.lastName && formData.lastName.trim("").length > 30)) {
-      errors.lastName = 'last name must be between 1 and 30 characters in length'
+      errors.lastName = 'Last name not valid'
     }
 
     //validate email
     if ((formData.touched.email && formData.email.trim("").length <= 5) ||
       (formData.touched.email && formData.email.trim("").length > 50)) {
-      errors.email = 'Email must be between 5 and 50 characters'
+      errors.email = 'Email is short or too long'
     }
 
     if ((formData.touched.email && !formData.email.match(validEmail))) {
@@ -129,13 +129,13 @@ function App() {
     //validate password
     if ((formData.touched.password && formData.password.trim("").length < 4) ||
       (formData.touched.password && formData.password.trim("").length > 6)) {
-      errors.password = 'password must be between 4 and 6 characters in length'
+      errors.password = 'incorrect password'
     }
 
     //validate confirm password
     if ((formData.touched.confirmPassword && formData.confirmPassword.trim("").length < 4) ||
       (formData.touched.confirmPassword && formData.confirmPassword.trim("").length > 6)) {
-      errors.confirmPassword = 'confirm password must be between 4 and 6 characters in length'
+      errors.confirmPassword = 'password do not match'
     }
 
 
