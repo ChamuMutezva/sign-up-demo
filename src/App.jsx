@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import logo from './assets/logo.svg';
-import Inputs from './components/Inputs';
+//import Inputs from './components/Inputs';
 import { Box } from '@mui/material';
 import { Button } from '@mui/material';
 import { TextField } from '@mui/material';
@@ -8,7 +8,7 @@ import { InputAdornment } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Avatar } from '@mui/material';
 //import { AccountCircle } from '@mui/icons-material';
-import { Email, Scale } from '@mui/icons-material';
+//import { Email, Scale } from '@mui/icons-material';
 import './App.css';
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
       password: '',
       confirmPassword: '',
     }
-    console.log(formData)
+    console.log(errors)
 
     if (formData.email.trim("") === "" ||
       formData.email.trim("").length < 1 ||
@@ -101,6 +101,7 @@ function App() {
     }
   }
 
+  /*
   const validate = () => {
     // Object to collect error feedback and to display on the form
     const errors = {
@@ -149,8 +150,8 @@ function App() {
     return errors
   }
 
-  const errors = validate()
-
+ const errors = validate()
+*/
   return (
     <div className="App">
       <Box sx={{ backgroundColor: "white", borderRadius: 2, width: "95%", maxWidth: 598 }}>
@@ -174,26 +175,25 @@ function App() {
         <main className="main">
           <Box component="form" onSubmit={onSubmit}>
 
-
             <TextField id="email" label="Email" variant="standard" required
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
-              type="email" name="email" onChange={onChange}
+              type="email" name="email" onChange={onChange} onBlur={onBlur}
             />
 
             <TextField id="first-name" label="First Name" variant="standard" required
-              autoComplete="given-name" name="firstName" onChange={onChange}
+              autoComplete="given-name" name="firstName" onChange={onChange} onBlur={onBlur}
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
             />
 
             <TextField id="last-name" label="Last Name" variant="standard" required
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }} autoComplete="family-name"
-              name="lastName" onChange={onChange}
+              name="lastName" onChange={onChange} onBlur={onBlur}
             />
 
 
             <TextField id="password" label="Password" variant="standard" required
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
-              name="password" onChange={onChange}
+              name="password" onChange={onChange} onBlur={onBlur}
               type="password" InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -206,7 +206,7 @@ function App() {
 
             <TextField id="cpassword" label="Confirm Password" variant="standard" required
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
-              name="confirmPassword" onChange={onChange}
+              name="confirmPassword" onChange={onChange} onBlur={onBlur}
               type="password" InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
