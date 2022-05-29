@@ -49,7 +49,7 @@ function App() {
 
   const onSubmit = (evt) => {
     evt.preventDefault()
-
+    console.log("Submitting.....")
     // Object to collect error feedback and to display on the form
     const errors = {
       email: '',
@@ -58,7 +58,7 @@ function App() {
       password: '',
       confirmPassword: '',
     }
-    console.log(errors)
+    console.log(formData)
 
     if (formData.email.trim("") === "" ||
       formData.email.trim("").length < 1 ||
@@ -70,28 +70,28 @@ function App() {
     if (formData.firstName.trim("") === "" ||
       formData.firstName.trim("").length < 1 ||
       formData.firstName.trim("").length > 50) {
-      document.getElementById("firstname").focus()
+      // document.getElementById("firstname").focus()
       return
     }
 
     if (formData.lastName.trim("") === "" ||
       formData.lastName.trim("").length < 1 ||
       formData.lastName.trim("").length > 50) {
-      document.getElementById("lastname").focus()
+      // document.getElementById("lastname").focus()
       return
     }
 
     if (formData.password.trim("") === "" ||
       formData.password.trim("").length < 1 ||
       formData.password.trim("").length > 50) {
-      document.getElementById("password").focus()
+      // document.getElementById("password").focus()
       return
     }
 
     if (formData.confirmPassword.trim("") === "" ||
       formData.confirmPassword.trim("").length < 1 ||
       formData.confirmPassword.trim("").length > 50) {
-      document.getElementById("cpassword").focus()
+      // document.getElementById("cpassword").focus()
       return
     }
 
@@ -177,20 +177,23 @@ function App() {
 
             <TextField id="email" label="Email" variant="standard" required
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
-              type="email"
+              type="email" name="email" onChange={onChange}
             />
 
             <TextField id="first-name" label="First Name" variant="standard" required
-              autoComplete="given-name"
+              autoComplete="given-name" name="firstName" onChange={onChange}
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
             />
 
             <TextField id="last-name" label="Last Name" variant="standard" required
-              sx={{ width: "100%", maxWidth: "23rem", mb: 1 }} autoComplete="family-name" />
+              sx={{ width: "100%", maxWidth: "23rem", mb: 1 }} autoComplete="family-name"
+              name="lastName" onChange={onChange}
+            />
 
 
             <TextField id="password" label="Password" variant="standard" required
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
+              name="password" onChange={onChange}
               type="password" InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -198,10 +201,12 @@ function App() {
                       sx={{ transform: "scale(.5)" }} />
                   </InputAdornment>
                 )
-              }} />
+              }}
+            />
 
             <TextField id="cpassword" label="Confirm Password" variant="standard" required
               sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
+              name="confirmPassword" onChange={onChange}
               type="password" InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -209,7 +214,8 @@ function App() {
                       sx={{ transform: "scale(.5)" }} />
                   </InputAdornment>
                 )
-              }} />
+              }}
+            />
 
 
             {/*confirm password details 
