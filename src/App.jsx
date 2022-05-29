@@ -6,8 +6,9 @@ import { Button } from '@mui/material';
 import { TextField } from '@mui/material';
 import { InputAdornment } from '@mui/material';
 import { Typography } from '@mui/material';
+import { Avatar } from '@mui/material';
 //import { AccountCircle } from '@mui/icons-material';
-import { Email } from '@mui/icons-material';
+import { Email, Scale } from '@mui/icons-material';
 import './App.css';
 
 function App() {
@@ -62,7 +63,7 @@ function App() {
     if (formData.email.trim("") === "" ||
       formData.email.trim("").length < 1 ||
       formData.email.trim("").length > 50) {
-      document.getElementById("email").focus()
+      // document.getElementById("email").focus()
       return
     }
 
@@ -175,38 +176,37 @@ function App() {
 
 
             <TextField id="email" label="Email" variant="standard" required
-              sx={{ width: "100%", maxWidth: "23rem" }}
-              type="email" InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <Email />
-                  </InputAdornment>
-                )
-              }} />
+              sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
+              type="email"
+            />
 
             <TextField id="first-name" label="First Name" variant="standard" required
-              sx={{ width: "100%", maxWidth: "23rem" }} />
+              autoComplete="given-name"
+              sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
+            />
 
             <TextField id="last-name" label="Last Name" variant="standard" required
-              sx={{ width: "100%", maxWidth: "23rem" }} />
+              sx={{ width: "100%", maxWidth: "23rem", mb: 1 }} autoComplete="family-name" />
 
 
             <TextField id="password" label="Password" variant="standard" required
-              sx={{ width: "100%", maxWidth: "23rem" }}
+              sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
               type="password" InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <Email />
+                    <Avatar src="./assets/Vector.svg" alt=""
+                      sx={{ transform: "scale(.5)" }} />
                   </InputAdornment>
                 )
               }} />
 
             <TextField id="cpassword" label="Confirm Password" variant="standard" required
-              sx={{ width: "100%", maxWidth: "23rem" }}
+              sx={{ width: "100%", maxWidth: "23rem", mb: 1 }}
               type="password" InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <Email />
+                    <Avatar src="./assets/Vector.svg" alt=""
+                      sx={{ transform: "scale(.5)" }} />
                   </InputAdornment>
                 )
               }} />
@@ -238,7 +238,7 @@ function App() {
             fontWeight: 500, marginBlock: "1rem",
           }} >
             Do you have an existing account?
-            <Button href="/" sx={{color: "#8A5D26"}}> Sign in</Button>
+            <Button href="/" sx={{ color: "#8A5D26", fontWeight: 700 }}> Sign in</Button>
           </Typography>
 
         </main>
