@@ -1,9 +1,6 @@
 import React from 'react'
-//import { TextField } from '@mui/material'
-import FormLabel from '@mui/material/FormLabel';
-//import { textAlign } from '@mui/system';
-//import { FormControl } from '@mui/material';
 
+import FormLabel from '@mui/material/FormLabel';
 
 function Inputs(props) {
   

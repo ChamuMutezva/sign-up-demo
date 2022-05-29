@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import logo from './assets/logo.svg';
 import Inputs from './components/Inputs';
+import { Box } from '@mui/material';
 import { Button } from '@mui/material';
+import { TextField } from '@mui/material';
+import { InputAdornment } from '@mui/material';
+import { Typography } from '@mui/material';
+//import { AccountCircle } from '@mui/icons-material';
+import { Email } from '@mui/icons-material';
 import './App.css';
 
 function App() {
@@ -146,62 +152,97 @@ function App() {
 
   return (
     <div className="App">
-      <div className="wrapper">
+      <Box sx={{ backgroundColor: "white", borderRadius: 2, width: "95%", maxWidth: 598 }}>
         <img className="img-logo" src={logo} alt="" />
-        <h1 className="main-title">Welcome <span className="sr-only">to livestock wealth </span></h1>
-        <h2 className="sub-title">Create wealth</h2>
+
+        <Typography variant="h1" sx={{
+          fontSize: "1.68rem", fontFamily: "Montserrat",
+          color: "#8A5D26", fontWeight: 700
+        }}>
+          Welcome
+        </Typography>
+
+        <Typography variant="h2" sx={{
+          fontSize: "1.38rem", fontFamily: "Montserrat",
+          color: "#8A5D26", fontWeight: 700, marginBlock: 2,
+        }}>
+          Create wealth
+        </Typography>
+
+
         <main className="main">
-          <form className="form" onSubmit={onSubmit}>
-            <fieldset className='form-inputs-container'>
+          <Box component="form" onSubmit={onSubmit}>
 
-              {/* email details */}
-              <Inputs divClassName="customer-email" labelfor="email" labeltext="Email"
-                type="email" name="email" id="email" placeholder=""
-                autoComplete="email" onChange={onChange} onBlur={onBlur} value={email}
-                min={5} max={50} ariaDescribedBy="error-email" errors={errors.email}
-                errorId="error-email" />
-              {/* email details */}
 
-              {/* first name details */}
-              <Inputs divClassName="customer-first-name" labelfor="firstname" labeltext="First Name"
-                type="text" name="firstName" id="firstname" placeholder=""
-                autoComplete="given-name" onChange={onChange} onBlur={onBlur} value={firstName}
-                min={1} max={50} ariaDescribedBy="error-first-name" errors={errors.firstName}
-                errorId="error-first-name" />
-              {/* first name details */}
+            <TextField id="email" label="Email" variant="standard" required
+              sx={{ width: "100%", maxWidth: "23rem" }}
+              type="email" InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Email />
+                  </InputAdornment>
+                )
+              }} />
 
-              {/*last name details */}
-              <Inputs divClassName="customer-last-name" labelfor="lastname" labeltext="Last Name"
-                type="text" name="lastName" id="lastname" placeholder=""
-                autoComplete="family-name" onChange={onChange} onBlur={onBlur} value={lastName}
-                min={1} max={50} ariaDescribedBy="error-last-name" errors={errors.lastName}
-                errorId="error-first-name" />
-              {/* last name details */}
+            <TextField id="first-name" label="First Name" variant="standard" required
+              sx={{ width: "100%", maxWidth: "23rem" }} />
 
-              {/*password details */}
-              <Inputs divClassName="customer-password" labelfor="password" labeltext="Password"
-                type="password" name="password" id="password" placeholder=""
-                autoComplete="off" onChange={onChange} onBlur={onBlur} value={password}
-                min={4} max={50} ariaDescribedBy="error-password" errors={errors.password}
-                errorId="error-password" />
-              {/* password details */}
+            <TextField id="last-name" label="Last Name" variant="standard" required
+              sx={{ width: "100%", maxWidth: "23rem" }} />
 
-              {/*confirm password details */}
+
+            <TextField id="password" label="Password" variant="standard" required
+              sx={{ width: "100%", maxWidth: "23rem" }}
+              type="password" InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Email />
+                  </InputAdornment>
+                )
+              }} />
+
+            <TextField id="cpassword" label="Confirm Password" variant="standard" required
+              sx={{ width: "100%", maxWidth: "23rem" }}
+              type="password" InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Email />
+                  </InputAdornment>
+                )
+              }} />
+
+
+            {/*confirm password details 
               <Inputs divClassName="customer-confirm-password" labelfor="cpassword" labeltext="Confirm Password"
                 type="password" name="confirmPassword" id="cpassword" placeholder=""
                 autoComplete="off" onChange={onChange} onBlur={onBlur} value={confirmPassword}
                 min={4} max={50} ariaDescribedBy="error-cpassword" errors={errors.confirmPassword}
                 errorId="error-cpassword" />
-              {/*confirm password details */}
+              confirm password details */}
 
-            </fieldset>
 
-            <Button variant="contained" type='submit' className='btn' >Create Account</Button>
-          </form>
-          <p className="alt-sign-in">Do you have an existing account?
-            <a href="/"> Sign in</a></p>
+            <Button variant="standard" type="submit" sx={{
+              fontSize: "1rem", fontFamily: "Montserrat", color: "#ffffff",
+              backgroundColor: "#8A5D26", fontWeight: 500, marginBlock: "1rem",
+              "&:hover": {
+                backgroundColor: "#8A5D26",
+                opacity: [0.9, 0.8, 0.7],
+              }
+            }}>
+              Create Account
+            </Button>
+          </Box>
+
+          <Typography variant="paragraph" sx={{
+            fontSize: "1rem", fontFamily: "Montserrat", color: "#8A5D26",
+            fontWeight: 500, marginBlock: "1rem",
+          }} >
+            Do you have an existing account?
+            <Button href="/" sx={{color: "#8A5D26"}}> Sign in</Button>
+          </Typography>
+
         </main>
-      </div>
+      </Box>
 
     </div>
   );
